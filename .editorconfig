@@ -1,0 +1,22 @@
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# Set the default charset to UTF-8
+[*.js, *.jsx, *.ts, *.tsx, *.json, *.css, *.scss, *.html, *.md]
+charset = utf-8
+
+# Use 2 spaces for indentation (change to your preferred indentation)
+[*.js, *.jsx, *.ts, *.tsx]
+indent_style = space
+indent_size = 2
+
+# Use tabs for indentation in Markdown files
+[*.md]
+indent_style = tab
+
+# Trim trailing whitespace and remove blank lines at the end of files
+[*.{js,jsx,ts,tsx,json,css,scss,html,md}]
+trim_trailing_whitespace = true
