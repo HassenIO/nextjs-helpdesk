@@ -1,4 +1,4 @@
-import TicketList from "./TicketList";
+import TicketList from './TicketList'
 
 export default function TicketsPage() {
   return (
@@ -6,10 +6,12 @@ export default function TicketsPage() {
       <nav>
         <div>
           <h2>Tickets</h2>
-          <p><small>Open tickets:</small></p>
+          <p>
+            <small>Open tickets:</small>
+          </p>
         </div>
       </nav>
-      <TicketList/>
+      <TicketList />
     </main>
   )
 }
