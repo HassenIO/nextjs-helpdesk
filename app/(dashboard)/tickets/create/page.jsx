@@ -1,5 +1,9 @@
 import CreateForm from './CreateForm'
 
+export const metadata = {
+  title: 'Dojo Helpdesk - Create a new Ticket',
+}
+
 export default function CreateTicketPage() {
   return (
     <main>
