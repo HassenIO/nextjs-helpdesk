@@ -3,7 +3,7 @@ import TicketsList from './TicketsList'
 import Loading from '../loading'
 
 export const metadata = {
-  title: 'Dojo Helpdesk - Tickets',
+  title: 'Dojo Helpdesk - Tickets', // This will set the title of the page
 }
 
 export default function TicketsPage() {
@@ -13,7 +13,7 @@ export default function TicketsPage() {
         <div>
           <h2>Tickets</h2>
           <p>
-            <small>Open tickets:</small>
+            <small>Currently open tickets:</small>
           </p>
         </div>
       </nav>
