@@ -1,10 +1,12 @@
 import { NextResponse } from 'next/server'
 
+const { SERVER_URL } = process.env
+
 export const dynamic = 'force-dynamic'
 
 export async function GET(_request, { params }) {
   const ticketId = params.id
-  const response = await fetch(`http://localhost:4000/tickets/${ticketId}`)
+  const response = await fetch(`${SERVER_URL}/tickets/${ticketId}`)
 
   if (!response.ok) {
     return NextResponse.json({ error: `Cannot find ticket ${ticketId}` }, { status: 404 })

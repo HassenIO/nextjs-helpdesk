@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation'
 
+const { SERVER_URL } = process.env
+
 export const dynamicParams = true
 
 export async function generateMetadata({ params }) {
@@ -11,13 +13,13 @@ export async function generateMetadata({ params }) {
 }
 
 export async function generateStaticParams() {
-  const response = await fetch('http://localhost:4000/tickets')
+  const response = await fetch(`${SERVER_URL}/tickets`)
   const tickets = await response.json()
   return tickets.map(ticket => ({ id: ticket.id }))
 }
 
 async function getTicket(id) {
-  const response = await fetch('http://localhost:4000/tickets/' + id, {
+  const response = await fetch(`${SERVER_URL}/tickets/${id}`, {
     next: {
       revalidate: 60,
     },

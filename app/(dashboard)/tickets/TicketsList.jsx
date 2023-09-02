@@ -1,7 +1,9 @@
 import Link from 'next/link'
 
+const { SERVER_URL } = process.env
+
 async function getTickets() {
-  const response = await fetch('http://localhost:4000/tickets', {
+  const response = await fetch(`${SERVER_URL}/tickets`, {
     next: {
       revalidate: 0,
     },
