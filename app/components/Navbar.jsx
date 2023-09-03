@@ -2,6 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Logo from 'public/dojo-logo.png'
 
+// Component
+import LogoutButton from './LogoutButton'
+
 export default function Navbar({ user }) {
   return (
     <nav className="flex">
@@ -14,6 +17,7 @@ export default function Navbar({ user }) {
           <button className="btn-primary">Create a Ticket</button>
         </Link>
         <span>Hello, {user.email}</span>
+        <LogoutButton />
       </>)}
     </nav>
   )
