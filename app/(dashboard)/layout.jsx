@@ -12,7 +12,7 @@ export default async function DashboardLayout({ children }) {
   if (!data.session) {
     redirect('/login')
   }
-  
+
   return (
     <>
       <Navbar user={data.session.user} />

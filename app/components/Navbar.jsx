@@ -12,13 +12,15 @@ export default function Navbar({ user }) {
       <h1>Dojo Helpdesk</h1>
       <Link href="/">Dashboard</Link>
       <Link href="/tickets">Tickets</Link>
-      {user && (<>
-        <Link href="/tickets/create" className="ml-auto">
-          <button className="btn-primary">Create a Ticket</button>
-        </Link>
-        <span>Hello, {user.email}</span>
-        <LogoutButton />
-      </>)}
+      {user && (
+        <>
+          <Link href="/tickets/create" className="ml-auto">
+            <button className="btn-primary">Create a Ticket</button>
+          </Link>
+          <span>Hello, {user.email}</span>
+          <LogoutButton />
+        </>
+      )}
     </nav>
   )
 }

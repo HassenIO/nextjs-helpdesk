@@ -1,11 +1,11 @@
 'use client'
 
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
-import { useState } from "react"
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { useState } from 'react'
 
 // Components
-import AuthForm from "../AuthForm"
-import { useRouter } from "next/navigation"
+import AuthForm from '../AuthForm'
+import { useRouter } from 'next/navigation'
 
 // export const metadata = {
 //   title: 'Dojo Helpdesk - Access your account',
@@ -18,7 +18,7 @@ export default function LoginPage() {
   const handleSubmit = async (e, email, password) => {
     e.preventDefault()
     setError(null)
-    
+
     const supabase = createClientComponentClient()
     const { error } = await supabase.auth.signInWithPassword({ email, password })
 

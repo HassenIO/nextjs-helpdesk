@@ -18,8 +18,12 @@ export default async function AuthLayout({ children }) {
       <nav>
         <h1>Dojo Helpdesk</h1>
         <div className="ml-auto">
-          <Link href="/signup" className="mx-4">Signup</Link>
-          <Link href="/login" className="mx-4">Login</Link>
+          <Link href="/signup" className="mx-4">
+            Signup
+          </Link>
+          <Link href="/login" className="mx-4">
+            Login
+          </Link>
         </div>
       </nav>
       {children}
