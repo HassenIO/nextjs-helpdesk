@@ -6,6 +6,15 @@ const { SERVER_URL } = process.env
 
 export const dynamic = 'force-dynamic'
 
+async function supabaseClient() {
+  const supabase = createRouteHandlerClient({ cookies })
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
+
+  return { supabase, session }
+}
+
 export async function GET() {
   const response = await fetch(`${SERVER_URL}/tickets`)
   const tickets = await response.json()
@@ -17,10 +26,7 @@ export async function GET() {
 export async function POST(request) {
   const ticket = await request.json()
 
-  const supabase = createRouteHandlerClient({ cookies })
-  const {
-    data: { session },
-  } = await supabase.auth.getSession()
+  const { supabase, session } = await supabaseClient()
 
   const { data, error } = await supabase
     .from('tickets')
