@@ -2,8 +2,6 @@ import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 
-const { SERVER_URL } = process.env
-
 export const dynamic = 'force-dynamic'
 
 async function supabaseClient() {
@@ -16,18 +14,18 @@ async function supabaseClient() {
 }
 
 export async function GET() {
-  const response = await fetch(`${SERVER_URL}/tickets`)
-  const tickets = await response.json()
-  return NextResponse.json(tickets, {
-    status: 200,
-  })
+  const { supabase } = await supabaseClient()
+  const { data, error, status } = await supabase.from('tickets').select()
+
+  console.log({ data, error, status })
+
+  return NextResponse.json({ data, error, status })
 }
 
 export async function POST(request) {
   const ticket = await request.json()
 
   const { supabase, session } = await supabaseClient()
-
   const { data, error } = await supabase
     .from('tickets')
     .insert({ ...ticket, user_email: session.user.email })

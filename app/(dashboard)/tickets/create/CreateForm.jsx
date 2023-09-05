@@ -17,8 +17,6 @@ export default function CreateForm() {
 
     const newTicket = { title, body, priority }
 
-    console.log(`NEXT_PUBLIC_ROOT_URL: ${process.env.NEXT_PUBLIC_ROOT_URL}`)
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_ROOT_URL}/api/tickets`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
