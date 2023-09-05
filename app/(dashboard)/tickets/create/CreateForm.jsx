@@ -3,8 +3,6 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
-const { NEXT_PUBLIC_ROOT_URL } = process.env
-
 export default function CreateForm() {
   const router = useRouter()
 
@@ -19,9 +17,9 @@ export default function CreateForm() {
 
     const newTicket = { title, body, priority }
 
-    console.log(`NEXT_PUBLIC_ROOT_URL: ${NEXT_PUBLIC_ROOT_URL}`)
+    console.log(`NEXT_PUBLIC_ROOT_URL: ${process.env.NEXT_PUBLIC_ROOT_URL}`)
 
-    const res = await fetch(`${NEXT_PUBLIC_ROOT_URL}/api/tickets`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_ROOT_URL}/api/tickets`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newTicket),
